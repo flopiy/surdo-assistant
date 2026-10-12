@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<link rel="icon" href="icons/icon48.png" />
+<style>
+  body {
+    width: 280px;
+    margin: 0;
+    padding: 14px 16px 16px;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #111827;
+    background: #fff;
+  }
+  h1 { font-size: 14px; margin: 0 0 12px; }
+  label { display: block; font-size: 12px; color: #6b7280; margin-bottom: 4px; }
+  select, input[type="range"] { width: 100%; box-sizing: border-box; margin-bottom: 12px; }
+  select { padding: 6px 8px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 13px; }
+  .row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+  .row span { font-size: 13px; }
+  button {
+    width: 100%;
+    padding: 8px 0;
+    border: none;
+    border-radius: 10px;
+    background: #2f7df6;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+  }
+  button.secondary { background: #eef2f7; color: #111827; margin-top: 8px; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #sizeVal { font-size: 12px; color: #6b7280; }
+  hr { border: none; border-top: 1px solid #e5e7eb; margin: 14px 0; }
+  #micStatus { font-size: 12px; color: #6b7280; margin-top: 8px; }
+  .hint { font-size: 11px; line-height: 1.35; color: #6b7280; margin: -8px 0 12px; }
+  .diagnostic { font-size: 11px; line-height: 1.4; color: #374151; background: #f3f4f6; padding: 8px; border-radius: 8px; margin: 6px 0 10px; }
+  .lang-row { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+  .lang-row select { width: auto; padding: 3px 6px; font-size: 12px; margin-bottom: 0; }
+</style>
+<base target="_blank">
+</head>
+<body>
+  <div class="lang-row">
+    <select id="uiLang" title="Interface language / 界面语言">
+      <option value="en">English</option>
+      <option value="zh">中文</option>
+    </select>
+  </div>
+
+  <h1 data-i18n="title">Sign Language Buddy</h1>
+
+  <div class="row">
+    <span data-i18n="showBuddy">Show assistant</span>
+    <input type="checkbox" id="visible" checked />
+  </div>
+
+  <label for="size"><span data-i18n="size">Assistant size</span>: <span id="sizeVal">260 px</span></label>
+  <input type="range" id="size" min="160" max="520" step="10" value="260" />
+
+  <label for="languagePair" data-i18n="languagePair">Language pair</label>
+  <select id="languagePair">
+    <option value="en-asl" selected>English (US) → ASL</option>
+    <option value="zh-csl">中文（普通话）→ CSL</option>
+  </select>
+  <div id="pairStatus" class="hint"></div>
+
+  <button id="demo" data-i18n="demo">Show gesture demo</button>
+  <button id="stop" class="secondary" data-i18n="stop">Stop</button>
+
+  <hr />
+
+  <label for="source" data-i18n="source">Word source</label>
+  <select id="source">
+    <option value="dom" data-i18n="srcDom">Page subtitles (DOM)</option>
+    <option value="mic" data-i18n="srcMic">Microphone (Web Speech)</option>
+    <option value="both" data-i18n="srcBoth">Both</option>
+  </select>
+  <div id="videoStatus" class="diagnostic"></div>
+  <div class="hint" data-i18n="sourceHint">For video choose DOM and enable CC/subtitles in the player. The microphone hears the room, not the tab's audio (it won't hear it through headphones).</div>
+
+  <button id="micStart" class="secondary" data-i18n="micStart">▶ Start microphone</button>
+  <button id="micStop" class="secondary" data-i18n="micStop">■ Stop microphone</button>
+  <button id="micPerm" class="secondary" data-i18n="micPerm">🔑 Allow microphone (one time)</button>
+
+  <div id="micStatus"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

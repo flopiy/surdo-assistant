@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<title>Дозвіл мікрофона — Помічник сурдо-перекладу</title>
+<style>
+  body { font-family: system-ui, -apple-system, sans-serif;
+         max-width: 480px; margin: 60px auto; padding: 24px;
+         color: #111827; background: #f9fafb; }
+  h1 { font-size: 20px; margin: 0 0 12px; }
+  p { line-height: 1.5; color: #4b5563; }
+  button { padding: 10px 20px; border: none; border-radius: 10px;
+           background: #2f7df6; color: #fff; font-size: 14px;
+           cursor: pointer; margin-right: 8px; }
+  button:disabled { opacity: 0.5; cursor: default; }
+  #status { margin-top: 16px; font-size: 14px; }
+  .ok { color: #059669; }
+  .err { color: #dc2626; }
+</style>
+</head>
+<body>
+  <h1>Дозвіл мікрофона</h1>
+  <p>Щоб помічник міг транскрибувати аудіо, потрібно один раз дозволити
+     доступ до мікрофона. Дозвіл збережеться для всього розширення.</p>
+  <button id="ask">Дозволити мікрофон</button>
+  <button id="close" disabled>Закрити</button>
+  <div id="status"></div>
+
+  <script src="permission.js"></script>
+</body>
+</html>
