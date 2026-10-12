@@ -1,4 +1,4 @@
-# Sign Language Buddy
+# Surdo Assistant
 
 **A floating browser assistant that demonstrates individual ASL / CSL sign-language
 gestures** for subtitles on a page or speech captured by your microphone.
